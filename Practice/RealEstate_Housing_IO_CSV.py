@@ -19,3 +19,14 @@ df.plot()
 #df['Visitors'].plot()
 plt.legend()
 plt.show()
+
+df = pd.read_csv('Test18.csv', index_col=0)
+print(df.head())
+
+df.columns = ['Real Date', 'Arlington_HPI', 'Dallas_HPI', 'A&M_HPI']
+print(df.head())
+df.set_index('Real Date', inplace=True)
+print(df.head())
+df.to_csv('Test19.csv', header=False, index=False)
+print(pd.read_csv('Test19.csv', index_col=0))
+print(df.rename(columns={'Dallas_HPI' : '77706_HPI'}).head())
